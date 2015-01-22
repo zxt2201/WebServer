@@ -1,0 +1,58 @@
+Server Test
+
+To test the fileserver works well, i use the google chrome to get start.After i run the "networking", 
+i type the path of html file, click the enter button and then the content of "page1.html" is presented in the browser.
+I also test a txt file which has the content of "hello world", these words also appear in the browser.
+
+To further test the GET, HEAD and POST functions, i create a specific "Test_Fileserver" class to carry on. 
+
+In GET test,I use the local file path as the parameter and print out the respond. I separately test the txt file(1)
+and the executed php file(3)(4). To test the not exist file, i type the file name which is not exist as the 
+parameter which get the respond "HTTP/1.0 404 Not Found".
+----------------------------This is the test for GET----------------------------
+~~~~~~~~~~~~~~(1)This is a normal test for get~~~~~~~~~~~~~~
+hello world!!!
+~~~~~~~~~~~~~~(2)This is the test for not exist file~~~~~~~~~~~~~~
+HTTP/1.0 404 Not Found
+~~~~~~~~~~~~~~(3)This is the test for a short php file~~~~~~~~~~~~~~
+hello world
+---------------------------This is the end of test for GET------------------------------
+
+
+
+The process of HEAD test is similar to GET test, which print out the head information of each files.
+----------------------------This is the test for HEAD----------------------------
+~~~~~~~~~~~~~~(1)This is a normal test for head~~~~~~~~~~~~~~
+HTTP/1.0 200 OK
+Date:Fri, 30 Nov 2012 14:56:20 GMT
+Content-Length:14
+Last-Modified:Thu, 29 Nov 2012 15:04:37 GMT
+Content-Type:text/plain
+
+~~~~~~~~~~~~~~(2)This is a test for php file~~~~~~~~~~~~~~
+HTTP/1.0 200 OK
+Date:Fri, 30 Nov 2012 14:56:20 GMT
+Content-Length:29385
+Last-Modified:Fri, 2 Nov 2012 22:21:31 GMT
+Content-Type:text/html
+
+~~~~~~~~~~~~~~(3)This is the test for not exist file~~~~~~~~~~~~~~
+HTTP/1.0 404 Not Found
+
+---------------------------This is the end of test for HEAD------------------------------
+
+
+
+
+
+For testing the method POST, i firstly try to post to a not exist file, which get the response "HTTP1.0 201 Created". 
+To check the the file really has been created and the post content has already moved into the new created file,
+i open the document to prove the assumption. Afterwards , i test the POST method for an exist file, 
+it return the content of the file.
+
+----------------------------This is the test for POST----------------------------
+~~~~~~~~~~~~~~(1)This is the test for a not exist file~~~~~~~~~~~~~~
+post-information
+~~~~~~~~~~~~~~(2)This is the test for a exist file~~~~~~~~~~~~~~
+hello world!!!
+---------------------------This is the end of test for POST------------------------------
